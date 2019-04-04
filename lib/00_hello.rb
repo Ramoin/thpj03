@@ -2,6 +2,7 @@ def ask_first_name
 	puts "C'est quoi ton blaze ?"
 	print ">"
 	first_name = gets.chomp 
+	return first_name
 end
 
 def say_hello(argument)
