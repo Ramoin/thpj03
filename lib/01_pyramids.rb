@@ -39,4 +39,52 @@ puts " " * space_left + "#" * (i*2 +1)  + " " * space_right
   end
 end
 
-pyramid
+#pyramid
+
+#### WTF PYRAMID ###
+
+def wtf_pyramid
+  puts "Donne le nombre d'étages"
+  etage = gets.chomp.to_i
+  base = (etage*2) - 1
+  space = base - 1
+
+  space_origin = space
+  base_origin = base
+  etage_origin = etage
+
+  space_left = space/2
+  space_right = space/2
+
+  0.upto(etage-1) do
+
+puts " " * space_left + "#" * (base-space)  + " " * space_right
+
+    space = space - 2
+    space_left = space/2
+    space_right = space/2
+  end
+
+  #etage = etage_origin
+  #base = base_origin
+  #space = space_origin
+
+space = space + 2
+space_left = space/2
+space_right = space/2
+
+
+
+ (etage-1).downto(0) do
+
+puts " " * space_left + "#" * (base-space)  + " " * space_right
+
+  space = space + 2
+  space_left = space/2
+  space_right = space/2
+end
+
+
+end
+
+wtf_pyramid
