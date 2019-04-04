@@ -60,13 +60,15 @@ end
 
   def average_finish_time
     registre = []
+    puts "Combien de parties ?"
+    taille = gets.chomp.to_i
 
-    # jouer 100 parties et enregistrer les lancers de dés
-    100.times do
+    # jouer parties et enregistrer les lancers de dés
+    taille.times do
       count = party
       registre << count
     end
-    print registre
+
     sum = 0
 
     # sommer les lancers de dés
@@ -74,11 +76,13 @@ end
       sum += i
     end
 
-    moyenne = sum/100
+    moyenne = sum/taille
 
     puts " le nombre de lancers de dés est : #{sum}"
-    puts " ce qui fait une moyenne sur les 100 parties de #{moyenne} lancers de dés"
+    puts " ce qui fait une moyenne de #{moyenne} lancers de dés sur les #{taille} parties"
 
   end
 
 average_finish_time
+
+########
