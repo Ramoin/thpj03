@@ -1,7 +1,7 @@
 
 
 def pyramid
-  puts "Donne le nombre d'étages"
+  puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
   etage = gets.chomp.to_i
   base = (etage*2) - 1
   #on remarque que la base permet de travailler sur la répartition entre les espaces et les "#" de la pyramide
@@ -39,19 +39,19 @@ puts " " * space_left + "#" * (i*2 +1)  + " " * space_right
   end
 end
 
-#pyramid
+
 
 #### WTF PYRAMID ###
 
 def wtf_pyramid
-  puts "Donne le nombre d'étages"
+  puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ? (choisis un nombre impair)"
   etage = gets.chomp.to_i
+if etage%2 == 0
+   puts "I SAID UN FUCKING NOMBRE IMPAIR BORDEL DE MERDE PUTAAAAAIN ok je me calme..."
+else
   base = (etage*2) - 1
   space = base - 1
 
-  space_origin = space
-  base_origin = base
-  etage_origin = etage
 
   space_left = space/2
   space_right = space/2
@@ -65,15 +65,11 @@ puts " " * space_left + "#" * (base-space)  + " " * space_right
     space_right = space/2
   end
 
-  #etage = etage_origin
-  #base = base_origin
-  #space = space_origin
+
 
 space = space + 2
 space_left = space/2
 space_right = space/2
-
-
 
  (etage-1).downto(0) do
 
@@ -84,7 +80,8 @@ puts " " * space_left + "#" * (base-space)  + " " * space_right
   space_right = space/2
 end
 
-
+end
 end
 
+pyramid
 wtf_pyramid
