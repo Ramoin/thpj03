@@ -1,38 +1,106 @@
-def pyramid
-  puts "Donne le nombre d'étages"
-  etage = gets.chomp.to_i
-  base = (etage*2) - 1
-  #on remarque que la base permet de travailler sur la répartition entre les espaces et les "#" de la pyramide
-  # la base donne le nombre de conteneur contenant soit " " soit "#"
-  # la pyramide est un ensemble de lignes avec une répartition de " " et "#" différente
-  # space : nombre de " " sur la ligne
-  # donc : base = space * le nombre de " " + (base - space) * "#"
-  # A CHAQUE ETAGE : L'ESPACE DES " " SE REDUIT DE 2, ET LE NOMBRE DE "#" AUGMENTE DE 2 (et la base ne change pas)
-  # donc avec 6 étages, la base fait : 11 conteneurs (avec des espaces ou des "#" dedans)
-  # 1er etage : space initial = base - 1 = 10 (5 de chaque coté) et un seul #
-  # 2eme etage : space = space - 2 (car +2 # se rajoute à chaque fois) donc 8 (4 de chaque coté) et 2+1 = 3 #
-  #3eme etage : space = 8-2 = 6 (3 espace de chaque coté) et 3+2 = 5 #
-  space = base - 1
-  space_left = space/2
-  space_right = space/2
-  # donc si len ombre d'étages est 6, par exemple : 5 espace à gauche, # au centre, 5 espace à droite
-  puts " " * space_left+ "#" + " " * space_right
-
-
-  for i in 1..etage do
-
-    space = space - 2
-    space_left = space/2
-    space_right = space/2
-
-    puts " " * space_left + "#" * (i*2 +1)  + " " * space_right
-
-
-    # si on reste sur 6 etages : 4 espace + 3 # + 4 espace à droite
-    # la base reste de 4 + 4 + 3 = 11
-    # deuxieme iteration : i = 2 et space = 4-1 = 3
-    # on a 3 space + 2*2 + 1 = 5# + 3 space
-  end
+def jet
+  jet = rand(1..6)
+  return jet
 end
 
-pyramid
+
+marche = 1
+
+
+##### boucle while
+  while marche < 10 do
+
+  puts " vous êtes à la marche numéro #{marche}"
+  lancer = rand(1..6)
+  puts "votre lancer de dés est #{lancer} !"
+
+  case lancer
+  when 1
+    puts "vous reculez d'une marche..."
+    marche = marche - 1
+  when 5, 6
+    puts "vous avancez d'une marche super !"
+    marche = marche + 1
+  else
+    puts "vous ne bougez pas ce tour-ci"
+    marche = marche
+  end
+
+  # test pour que la marche ne soit pas en dessous de 0
+      if (marche < 1)
+        marche = 1
+      end
+
+  # test pour afficher si le jeu se termine
+
+      if (marche == 10)
+        puts "BRAVO ET C'EST GAGNEEEEEE"
+      end
+
+
+  end
+
+#### FIN DU PROGRAMME ###
+
+
+
+  ###### AUTRE PROGRAMME AVEC DES IF SIMPLE (moins élégant)
+
+
+  =begin
+
+
+  ###### PROGRAMME ####
+
+  def jet
+    jet = rand(1..6)
+    return jet
+  end
+
+
+  marche = 1
+
+  #lancer = jet
+  #puts lancer
+  #if lancer == 3 then puts "yeah" else puts "nooo" end
+
+  ##### boucle while
+    while marche < 10 do
+
+    puts " vous êtes à la marche numéro #{marche}"
+    lancer = rand(1..6)
+    puts "votre lancer de dés est #{lancer} !"
+
+    if (lancer == 1)
+      marche = marche - 1
+      puts "vous reculez"
+    end
+
+    if lancer == 5 || lancer == 6
+      marche = marche + 1
+      puts "vous avancez"
+    end
+
+    if lancer == 2 || lancer == 3 || lancer == 4
+      marche = marche
+      puts "vous ne bougez pas"
+    end
+
+    # test pour que la marche ne soit pas en dessous de 0
+        if (marche < 1)
+          marche = 1
+        end
+
+    # test pour afficher si le jeu se termine
+
+        if (marche == 10)
+          puts "BRAVO ET C'EST GAGNEEEEEE"
+        end
+
+
+    end
+
+
+
+
+  =end
