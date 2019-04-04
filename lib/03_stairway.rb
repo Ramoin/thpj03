@@ -4,7 +4,13 @@ def jet
 end
 
 
+
+def party
+
+# numéro de la marche initiale (1ère marche, ou alors 0 mais peu important...)
 marche = 1
+#compteur pour le nombre de lancers de dés pour la moyenne à venir
+compteur = 0
 
 
 ##### boucle while
@@ -34,9 +40,45 @@ marche = 1
 
   # test pour afficher si le jeu se termine
 
-      if (marche == 10)
-        puts "BRAVO ET C'EST GAGNEEEEEE"
-      end
 
+
+compteur = compteur + 1
 
   end
+
+# sortie de la boucle while... et victoire
+
+  puts "BRAVO ET C'EST GAGNEEEEEE"
+  puts "Vous avez lancé le dé #{compteur} fois"
+  compteur = compteur
+# ajout du compteur de cette partie au registre
+
+
+
+end
+
+
+  def average_finish_time
+    registre = []
+
+    # jouer 100 parties et enregistrer les lancers de dés
+    100.times do
+      count = party
+      registre << count
+    end
+    print registre
+    sum = 0
+
+    # sommer les lancers de dés
+    registre.each do |i|
+      sum += i
+    end
+
+    moyenne = sum/100
+
+    puts " le nombre de lancers de dés est : #{sum}"
+    puts " ce qui fait une moyenne sur les 100 parties de #{moyenne} lancers de dés"
+
+  end
+
+average_finish_time
