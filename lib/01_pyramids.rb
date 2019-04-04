@@ -16,18 +16,18 @@ def pyramid
   #3eme etage : space = 8-2 = 6 (3 espace de chaque coté) et 3+2 = 5 #
   space = base - 1
   space_left = space/2
-  space_right = space/2
+
   # donc si le nombre d'étages est 6, par exemple : 5 espace à gauche, # au centre, 5 espace à droite
 
 
 
   for i in 0..(etage-1) do
 
-puts " " * space_left + "#" * (i*2 +1)  + " " * space_right
+puts " " * space_left + "#" * (i*2 +1)
 
     space = space - 2
     space_left = space/2
-    space_right = space/2
+
 
 
 
@@ -54,30 +54,34 @@ else
 
 
   space_left = space/2
-  space_right = space/2
+
 
   0.upto(etage-1) do
 
-puts " " * space_left + "#" * (base-space)  + " " * space_right
+puts " " * space_left + "#" * (base-space)
 
     space = space - 2
     space_left = space/2
-    space_right = space/2
+
   end
 
 
 
 space = space + 2
 space_left = space/2
-space_right = space/2
 
- (etage-1).downto(0) do
 
-puts " " * space_left + "#" * (base-space)  + " " * space_right
+#### processus inverse
+
+ (etage-2).downto(0) do
+   ### etage - 2 car il y a aura un tour de boucle en moins... la ligne centrale étant déjà construite par la première boucle
+
+#### on rajoute un espace et on enlève 2#... puis on itère jusqu'à la fin
+puts " " * (space_left+1) + "#" * (base-space-2)
 
   space = space + 2
   space_left = space/2
-  space_right = space/2
+
 end
 
 end
